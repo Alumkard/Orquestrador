@@ -71,7 +71,8 @@ async function lerSSE<T>(caminho: string, init: RequestInit, aoEvento: (e: T) =>
 }
 
 export const api = {
-  saude: () => chamar<{ versao: string; ollama: boolean }>("/api/saude"),
+  saude: () =>
+    chamar<{ versao: string; ollama: boolean; locais?: { avisos: string[] } }>("/api/saude"),
   diagnostico: () => chamar<Diagnostico>("/api/diagnostico"),
   agentes: () => chamar<Agente[]>("/api/agentes"),
   modelos: () => chamar<{ ollama_ativo: boolean; modelos: ModeloStatus[] }>("/api/modelos"),

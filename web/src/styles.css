@@ -228,3 +228,5 @@ code { background: #f0f0f6; padding: 1px 5px; border-radius: 4px; }
 
 .lidos { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: var(--texto-suave); margin: -2px 0 6px; }
 .aviso-lido { color: var(--aviso); }
+
+.faixa-aviso { background: #fdf3dc; color: #7a5410; padding: 8px 24px; font-size: 13px; border-bottom: 1px solid #f2dca4; }

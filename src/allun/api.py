@@ -33,6 +33,7 @@ from allun.configuracao import (
 )
 from allun.hardware import PerfilHardware, classificar, detectar_hardware
 from allun.integracao import ClienteOllama, ErroOllama
+from allun.locais import locais_em_uso
 from allun.orquestrador import (
     AGENTES,
     ErroLLM,
@@ -246,7 +247,11 @@ def criar_app(armazenamento: Armazenamento | None = None, aquecer: bool = True) 
 
     @app.get("/api/saude")
     def saude():
-        return {"versao": __version__, "ollama": _instalados() is not None}
+        return {
+            "versao": __version__,
+            "ollama": _instalados() is not None,
+            "locais": locais_em_uso(base.caminho),
+        }
 
     @app.get("/api/diagnostico")
     def diagnostico():

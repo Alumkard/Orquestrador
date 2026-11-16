@@ -8,9 +8,11 @@
     "web": "npm --prefix web run dev",
     "dev": "concurrently -n api,web -c blue,magenta \"npm:api\" \"npm:web\"",
     "build": "npm --prefix web run build",
-    "start": "npm run build && npm run api"
+    "start": "npm run build && .venv\\Scripts\\python -m allun servir"
   },
   "devDependencies": {
     "concurrently": "^9.0.0"
   }
 }
+
+

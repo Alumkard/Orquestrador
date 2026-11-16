@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import sys
+from pathlib import Path
 
 from allun import __version__
 from allun.catalogo import ModeloLLM, carregar_catalogo
@@ -88,6 +89,14 @@ def main(argv: list[str] | None = None) -> int:
     servir = sub.add_parser("servir", help="Inicia a API e o painel web.")
     servir.add_argument("--porta", type=int, default=8000)
     servir.add_argument("--host", default="127.0.0.1")
+    servir.add_argument(
+        "--recarregar",
+        action="store_true",
+        help=(
+            "Reinicia a API sozinha quando o código Python muda. Use num terminal só para a "
+            "API: no Windows, o reinício derruba os outros processos do mesmo terminal."
+        ),
+    )
     for p in (baixar, perguntar, orq):
         p.add_argument("--url", default=URL_PADRAO, help="URL do servidor Ollama.")
     sub.choices["modelos"].add_argument("--url", default=URL_PADRAO)
@@ -168,8 +177,19 @@ def _executar(args: argparse.Namespace) -> int:
     if args.comando == "servir":
         import uvicorn
 
+        from allun.locais import descrever_locais
+
         print(f"Allun em http://{args.host}:{args.porta}")
-        uvicorn.run("allun.api:criar_app", factory=True, host=args.host, port=args.porta)
+        for linha in descrever_locais():
+            print(linha)
+        uvicorn.run(
+            "allun.api:criar_app",
+            factory=True,
+            host=args.host,
+            port=args.porta,
+            reload=args.recarregar,
+            reload_dirs=[str(Path(__file__).resolve().parent)] if args.recarregar else None,
+        )
         return 0
 
     cliente = ClienteOllama(args.url)

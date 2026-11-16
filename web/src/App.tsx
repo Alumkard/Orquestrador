@@ -32,6 +32,7 @@ export default function App() {
   const [versao, setVersao] = useState("0.1.0");
   const [ollama, setOllama] = useState<boolean | null>(null);
   const [apiOff, setApiOff] = useState(false);
+  const [avisosLocais, setAvisosLocais] = useState<string[]>([]);
   const [diagnostico, setDiagnostico] = useState<Diagnostico | null>(null);
   const [agentes, setAgentes] = useState<Agente[]>([]);
   const [modelos, setModelos] = useState<ModeloStatus[]>([]);
@@ -60,6 +61,7 @@ export default function App() {
       .then((s) => {
         setVersao(s.versao);
         setOllama(s.ollama);
+        setAvisosLocais(s.locais?.avisos ?? []);
         setApiOff(false);
       })
       .catch(() => setApiOff(true));
@@ -272,6 +274,13 @@ export default function App() {
         {apiOff && (
           <div className="faixa-erro">
             API fora do ar. Rode <code>python -m allun servir</code> e recarregue a página.
+          </div>
+        )}
+        {avisosLocais.length > 0 && (
+          <div className="faixa-aviso">
+            {avisosLocais.map((a) => (
+              <div key={a}>{a}</div>
+            ))}
           </div>
         )}
         <header className="topo">
