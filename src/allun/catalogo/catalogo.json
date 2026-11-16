@@ -1,0 +1,37 @@
+{
+  "_observacao": "Requisitos de memória são aproximados (Q4 + contexto). Limites e modelos gratuitos de APIs mudam com frequência: confira no site do provedor. Última revisão do catálogo online: ver histórico do projeto.",
+  "modelos": [
+    {"id": "gemma3:1b", "nome": "Gemma 3 1B", "tipo": "local", "provedor": "ollama", "qualidade": 1, "memoria_min_gb": 1.5, "tamanho_gb": 0.8, "custo": "gratuito"},
+    {"id": "llama3.2:1b", "nome": "Llama 3.2 1B", "tipo": "local", "provedor": "ollama", "qualidade": 2, "memoria_min_gb": 2.0, "tamanho_gb": 1.3, "custo": "gratuito"},
+    {"id": "llama3.2:3b", "nome": "Llama 3.2 3B", "tipo": "local", "provedor": "ollama", "qualidade": 3, "memoria_min_gb": 3.0, "tamanho_gb": 2.0, "custo": "gratuito"},
+    {"id": "qwen2.5:3b", "nome": "Qwen 2.5 3B", "tipo": "local", "provedor": "ollama", "qualidade": 4, "memoria_min_gb": 3.0, "tamanho_gb": 1.9, "custo": "gratuito"},
+    {"id": "qwen2.5:7b", "nome": "Qwen 2.5 7B", "tipo": "local", "provedor": "ollama", "qualidade": 6, "memoria_min_gb": 6.0, "tamanho_gb": 4.7, "custo": "gratuito"},
+    {"id": "qwen2.5-coder:3b", "nome": "Qwen 2.5 Coder 3B", "tipo": "local", "provedor": "ollama", "qualidade": 4, "memoria_min_gb": 3.0, "tamanho_gb": 1.9, "custo": "gratuito", "especialidade": "programador", "observacao": "Modelo de código. Usado pelo programador quando instalado."},
+    {"id": "qwen2.5-coder:7b", "nome": "Qwen 2.5 Coder 7B", "tipo": "local", "provedor": "ollama", "qualidade": 6, "memoria_min_gb": 6.0, "tamanho_gb": 4.7, "custo": "gratuito", "especialidade": "programador", "observacao": "Modelo de código. Usado pelo programador quando instalado."},
+    {"id": "qwen2.5:14b", "nome": "Qwen 2.5 14B", "tipo": "local", "provedor": "ollama", "qualidade": 7, "memoria_min_gb": 10.5, "tamanho_gb": 9.0, "custo": "gratuito"},
+
+    {"id": "gemini/gemini-3.8-flash", "chave_url": "https://aistudio.google.com/apikey", "nome": "Gemini 3.8 Flash", "tipo": "online", "provedor": "google", "qualidade": 7, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["GEMINI_API_KEY"], "observacao": "Google AI Studio. Limites do plano gratuito foram reduzidos em 2025; os valores atuais estão na página de rate limits do Google."},
+    {"id": "groq/llama-3.3-70b-versatile", "chave_url": "https://console.groq.com/keys", "nome": "Llama 3.3 70B (Groq)", "tipo": "online", "provedor": "groq", "qualidade": 8, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["GROQ_API_KEY"], "observacao": "Inferência muito rápida; sem cartão."},
+    {"id": "cerebras/gpt-oss-120b", "contexto_tokens": 65536, "chave_url": "https://cloud.cerebras.ai", "nome": "GPT-OSS 120B (Cerebras)", "tipo": "online", "provedor": "cerebras", "qualidade": 8, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["CEREBRAS_API_KEY"], "observacao": "Inferência muito rápida; contexto de 65k no plano gratuito."},
+    {"id": "openrouter/openrouter/free", "chave_url": "https://openrouter.ai/keys", "nome": "OpenRouter Free (roteador)", "tipo": "online", "provedor": "openrouter", "qualidade": 6, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["OPENROUTER_API_KEY"], "observacao": "Escolhe automaticamente um modelo :free disponível. A lista de modelos gratuitos muda toda semana."},
+    {"id": "mistral/mistral-small-latest", "chave_url": "https://console.mistral.ai/api-keys", "nome": "Mistral Small", "tipo": "online", "provedor": "mistral", "qualidade": 6, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["MISTRAL_API_KEY"], "observacao": "Plano Experiment da La Plateforme; os dados podem ser usados para treino neste plano."},
+    {"id": "github/gpt-4.1", "chave_url": "https://github.com/settings/tokens", "nome": "GPT-4.1 (GitHub Models)", "tipo": "online", "provedor": "github", "qualidade": 8, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["GITHUB_API_KEY"], "observacao": "Usa um token pessoal do GitHub (permissão models). Limites de taxa baixos e variáveis; apenas para prototipagem."},
+    {"id": "huggingface/Qwen/Qwen2.5-72B-Instruct", "chave_url": "https://huggingface.co/settings/tokens", "nome": "Qwen 2.5 72B (Hugging Face)", "tipo": "online", "provedor": "huggingface", "qualidade": 7, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["HF_TOKEN"], "observacao": "Inference Providers; a cota gratuita mensal é pequena."},
+    {"id": "cloudflare/@cf/meta/llama-3.1-8b-instruct", "chave_url": "https://dash.cloudflare.com/profile/api-tokens", "nome": "Llama 3.1 8B (Cloudflare)", "tipo": "online", "provedor": "cloudflare", "qualidade": 4, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["CLOUDFLARE_API_KEY", "CLOUDFLARE_ACCOUNT_ID"], "observacao": "Workers AI: cota diária em 'neurônios'."},
+    {"id": "cohere/command-a-03-2025", "chave_url": "https://dashboard.cohere.com/api-keys", "nome": "Command A (Cohere)", "tipo": "online", "provedor": "cohere", "qualidade": 7, "memoria_min_gb": 0, "custo": "gratuito", "chaves_env": ["COHERE_API_KEY"], "observacao": "Chave Trial: somente uso não comercial e cerca de 1.000 chamadas por mês."},
+
+    {"id": "Meta-Llama-3_3-70B-Instruct", "nome": "Llama 3.3 70B (OVHcloud, anônimo)", "tipo": "online", "provedor": "ovhcloud", "qualidade": 7, "memoria_min_gb": 0, "custo": "gratuito", "api_base": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1", "observacao": "Sem chave e com limite de taxa por IP. Empresa europeia, mas sem cadastro."},
+    {"id": "codestral-latest", "nome": "Codestral (LLM7, anônimo)", "tipo": "online", "provedor": "llm7", "qualidade": 5, "memoria_min_gb": 0, "custo": "gratuito", "api_base": "https://api.llm7.io/v1", "observacao": "Serviço comunitário sem chave. Sem garantia de disponibilidade nem de privacidade."},
+
+    {"id": "deepseek/deepseek-chat", "chave_url": "https://platform.deepseek.com/api_keys", "nome": "DeepSeek V3", "tipo": "online", "provedor": "deepseek", "qualidade": 8, "memoria_min_gb": 0, "custo": "pago", "chaves_env": ["DEEPSEEK_API_KEY"]},
+    {"id": "openai/gpt-6-luna", "chave_url": "https://platform.openai.com/api-keys", "nome": "GPT-6 Luna", "tipo": "online", "provedor": "openai", "qualidade": 8, "memoria_min_gb": 0, "custo": "pago", "chaves_env": ["OPENAI_API_KEY"], "observacao": "Modelo mais barato da família GPT-6. Substitui o GPT-4.1, que a OpenAI desliga em 14/01/2027."},
+    {"id": "openai/gpt-6.1-sol", "chave_url": "https://platform.openai.com/api-keys", "nome": "GPT-6.1 Sol", "tipo": "online", "provedor": "openai", "qualidade": 9, "memoria_min_gb": 0, "custo": "pago", "chaves_env": ["OPENAI_API_KEY"], "observacao": "Equilíbrio entre qualidade e custo."},
+    {"id": "openai/gpt-6-astra", "chave_url": "https://platform.openai.com/api-keys", "nome": "GPT-6 Astra", "tipo": "online", "provedor": "openai", "qualidade": 10, "memoria_min_gb": 0, "custo": "pago", "chaves_env": ["OPENAI_API_KEY"], "observacao": "Modelo principal da OpenAI para raciocínio complexo e código. O mais caro."},
+    {"id": "anthropic/claude-sonnet-4-5", "chave_url": "https://console.anthropic.com/settings/keys", "nome": "Claude Sonnet 4.5", "tipo": "online", "provedor": "anthropic", "qualidade": 10, "memoria_min_gb": 0, "custo": "pago", "chaves_env": ["ANTHROPIC_API_KEY"]}
+  ]
+}
+
+
+
+
+

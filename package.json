@@ -1,0 +1,16 @@
+{
+  "name": "allun",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Atalhos para iniciar o Allun (API em Python + painel em Vite).",
+  "scripts": {
+    "api": ".venv\\Scripts\\python -m allun servir",
+    "web": "npm --prefix web run dev",
+    "dev": "concurrently -n api,web -c blue,magenta \"npm:api\" \"npm:web\"",
+    "build": "npm --prefix web run build",
+    "start": "npm run build && npm run api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
